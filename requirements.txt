@@ -1,0 +1,8 @@
+fastapi==0.115.11
+uvicorn
+pyjwt
+httpx
+boto3
+requests
+cryptography
+python-dotenv
