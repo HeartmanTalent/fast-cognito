@@ -1,31 +1,79 @@
-# FastAPI Setup and Testing Instructions
+# 🚀 FastAPI Setup & Cognito Test
 
-Follow the steps below to set up and test the FastAPI application with authentication.
+Get your FastAPI application up and running with authentication in a few easy steps!
 
-### Step 1: Create a `.env` file
-Create a `.env` file in the root of your project to store environment variables.
+## 🛠️ Prerequisites
 
-### Step 2: Install Dependencies
-Run the following command to install all required dependencies:
-run `pip install -r requirements.txt`
+* Python 3.7+ installed
+* `pip` package manager
 
-### Step 3:  Start the FastAPI Application
-Start the FastAPI server with:
-run `uvicorn main:app --reload ` to start the project
+## ⚙️ Setup
 
+### 1. Create `.env` File
 
-### Step 4: Test the Application
-#### Test the Root Endpoint
-navigate to `curl http://127.0.0.1:8000` 
+   * In the root directory of your project, create a file named `.env`.
 
-#### Test the Protected Endpoint
-if the above is working 
-navigate to `curl http://127.0.0.1:8000/protected` 
-the above should give you a 403
-#### Login and Get an Access Token
-navigate to `curl http://127.0.0.1:8000/login`  to get the access token, <your-valid-token>
-The username and password are for a user already in the userpool for test
+### 2. Install Dependencies
 
-#### Step 6: Access the Protected Endpoint with the Access Token
-then `curl -H "Authorization: Bearer <your-valid-token>" http://127.0.0.1:8000/protected`
-you should be able to gain access
+   * Open your terminal and navigate to your project directory.
+   * Run the following command to install all required packages:
+
+     ```bash
+     pip install -r requirements.txt
+     ```
+
+### 3. Start the FastAPI Application
+
+   * Launch the FastAPI server using `uvicorn`:
+
+     ```bash
+     uvicorn main:app --reload
+     ```
+
+     * This command starts the server and enables automatic reloading for development.
+
+## 🧪 Testing
+
+### 4. Verify Root Endpoint
+
+   * Open your terminal and make a request to the root endpoint:
+
+     ```bash
+     curl http://127.0.0.1:8000
+     ```
+
+   * You should receive a successful response, confirming the server is running.
+
+### 5. Test Protected Endpoint (Initial Access Denied)
+
+   * Attempt to access the protected endpoint without authentication:
+
+     ```bash
+     curl http://127.0.0.1:8000/protected
+     ```
+
+   * You should receive a `403 Forbidden` error, indicating that authentication is required.
+
+### 6. Obtain an Access Token (Login)
+
+   * Log in to obtain an access token. Ensure that there is a user in your user pool for testing.
+
+     ```bash
+     curl http://127.0.0.1:8000/login
+     ```
+
+   * The response will contain your `<your-valid-token>`. Copy this token.
+
+### 7. Access Protected Endpoint with Token
+
+   * Use the obtained access token to access the protected endpoint:
+
+     ```bash
+     curl -H "Authorization: Bearer <your-valid-token>" http://127.0.0.1:8000/protected
+     ```
+
+   * You should now receive a successful response, confirming that your token is valid and you have access to the protected resource.
+
+## 🎉 Congratulations!
+
+You have successfully set up and tested your FastAPI application with authentication.
