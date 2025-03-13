@@ -62,14 +62,14 @@ Get your FastAPI application up and running with authentication in a few easy st
      curl http://127.0.0.1:8000/login
      ```
 
-   * The response will contain your `<your-valid-token>`. Copy this token.
+   * The response will contain your `<access-token>`. Copy this token.
 
 ### 7. Access Protected Endpoint with Token
 
    * Use the obtained access token to access the protected endpoint:
 
      ```bash
-     curl -H "Authorization: Bearer <your-valid-token>" http://127.0.0.1:8000/protected
+     curl -H "Authorization: Bearer <access-token>" http://127.0.0.1:8000/protected
      ```
 
    * You should now receive a successful response, confirming that your token is valid and you have access to the protected resource.
